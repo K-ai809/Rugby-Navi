@@ -44,5 +44,13 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
                color: #e60012;
                transform: translateY(-2px);}
 
-               
+
+/*ボディー・メインエリア*/
+#pageBody{max-width: 1050px;
+          margin: 40px auto;
+          display: flex;
+          gap: 30px;
+          justify-content: center;
+          padding: 0 20px;}
+
 

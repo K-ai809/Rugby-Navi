@@ -66,3 +66,11 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
                      position: relative;
                      object-fit: cover;}
 
+/*サイドナビ*/
+.sideNavi{width: 260px;
+          background: white;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);}
+
+

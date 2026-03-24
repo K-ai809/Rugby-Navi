@@ -67,10 +67,32 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
                      object-fit: cover;}
 
 /*サイドナビ*/
-.sideNavi{width: 260px;
-          background: white;
-          padding: 20px;
-          border-radius: 12px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);}
+.sideNavi{width: 260px;}
+
+.sideNavi h3{font-size: 1.1rem;
+             color: #2d3436;
+             margin-bottom: 15px;
+             padding-left: 10px;
+             border-left: 5px solid #e60012;}
+
+.sideNavi ul{list-style: none;
+             padding: 0;
+             margin: 0;}
+
+.sideNavi li{margin-bottom: 15px;}
+
+.sideNavi a{display: block;
+            background: white;
+            color: #2d3436;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;}
+
+.sideNavi a:hover{background: #e60012;
+                  color: white;
+                  transform: translateX(5px);
+                  box-shadow: 0 6px 15px rgba(230, 0, 18, 0.2);}
 
 

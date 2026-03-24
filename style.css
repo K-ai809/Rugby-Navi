@@ -53,6 +53,10 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
           justify-content: center;
           padding: 0 20px;}
 
+#pageBody::after{content: "";
+                 clear: both;
+                 display: block;}
+
 /*ボディー画像スライドショーエリア*/
 .slideshow-area{width: 720px;
                 background: white;
@@ -68,7 +72,7 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
 
 /*サイドナビ*/
 .sideNavi{width: 260px;
-          flex-grow: 1;}
+          float: right;}
 
 .sideNavi h3{font-size: 1.1rem;
              color: #2d3436;

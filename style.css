@@ -1,14 +1,17 @@
 body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif ;
      margin: 0;
      padding: 0;
-     background-color: #f0f2f5;
-     color: #333;}
+     background-color: #f8f9fa;
+     color: #2d3436;}
 
 /*ヘッダー*/
-#pageHead{background-color: #e60012;
+#pageHead{background:linear-gradient(135deg, #d63031, #e60012);
           color: white;
           text-align: center;
-          padding: 20px 0;}
+          padding: 20px 0;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);}
 
-          
+/*上部ナビ、ボタン配置*/
+.topNavi{background-color: ;}
+
 

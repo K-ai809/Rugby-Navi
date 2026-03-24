@@ -67,7 +67,8 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
                      object-fit: cover;}
 
 /*サイドナビ*/
-.sideNavi{width: 260px;}
+.sideNavi{width: 260px;
+          flex-grow: 1;}
 
 .sideNavi h3{font-size: 1.1rem;
              color: #2d3436;

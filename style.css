@@ -11,6 +11,10 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
           padding: 20px 0;
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);}
 
+#pageHead h1{margin: 0;
+             font-size: 2.5rem;
+             letter-spacing: 2px;}
+
 /*上部ナビ、ボタン配置*/
 .topNavi{background-color: ;}
 

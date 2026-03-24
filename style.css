@@ -16,6 +16,33 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
              letter-spacing: 2px;}
 
 /*上部ナビ、ボタン配置*/
-.topNavi{background-color: ;}
+.topNavi{background-color: #2d3436;
+         padding: 5px 0;
+         position: sticky;
+         top: 0;
+         z-index: 1000;}
 
+.topNavi ul{list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 0;
+            padding: 10px;}
+
+.navibtn{display: block;
+         background-color: rgba(255, 255, 255, 0.1);
+         color: white;
+         text-decoration: none;
+         padding: 10px 20px;
+         border-radius: 30px;
+         font-weight: bold;
+         font-size: 0.9rem;
+         transition: all 0.3s ease;
+         border: 1px solid rgba(255, 255, 255, 0.2);}
+
+.navibtn:hover{background-color: white;
+               color: #e60012;
+               transform: translateY(-2px);}
+
+               
 

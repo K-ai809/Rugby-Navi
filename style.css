@@ -72,7 +72,10 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
 
 /*サイドナビ*/
 .sideNavi{width: 260px;
-          float: right;}
+          float: right;
+          margin-top: -400px;
+          position: relative;
+          z-index: 10;}
 
 .sideNavi h3{font-size: 1.1rem;
              color: #2d3436;
@@ -100,6 +103,25 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
                   transform: translateX(5px);
                   box-shadow: 0 6px 15px rgba(230, 0, 18, 0.2);}
 
+
+/*メイン文章エリア*/
+.main-massage{clear: both;
+              text-align: center;
+              padding: 80px 20px;
+              background: #fff;
+              margin: 40px 0;
+              border-radius: 15px;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);}
+
+.main-massage h2{font-size: 2.2rem;
+                 color: #e60012;
+                 letter-spacing: 0.2rem;
+                 margin-bottom: 20px;
+                 font-family: 'Georgia', serif;}
+
+.main-massage p{font-size: 1.1rem;
+                line-height: 1.8;
+                color: #555;}
 /*下部エリア*/
 .bottom-section{clear: both;
                 max-width: 1050px;

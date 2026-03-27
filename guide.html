@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>動画解説 | ラグビーナビ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="pageHead">
+        <h1>プレー解説・ガイド</h1>
+    </header>
+
+    <div id="pageBody">
+        <main class="content-area">
+            <h2>動画分析・解説</h2>
+            <p>プレー動画や、解説してほしい動画のURLをアップロードして解説を受けましょう！</p>
+
+            <div class="input-section">
+                <div class="input-card">
+                    <h3>🔗 URL動画を解説</h3>
+                    <input type="text" class="url-input" placeholder="YouTubeなどのURLを貼り付け">
+                </div>
+                
+                <div class="input-card">
+                    <h3>自分で撮った動画を解説</h3>
+                    <input type="file" id="video-upload" accept="video/*">
+                    <p class="file-note">写真アプリの動画や画面収録にも対応</p>
+                </div>
+            </div>
+
+            <div class="analysis-control">
+                <button class="btn-analyze">解析を実行する</button>
+            </div>
+
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <video id="player" controls width="100%">
+                      <p>お使いのブラウザは動画再生に適していません</p>
+                    </video>
+                </div>
+            </div>
+
+            <div class="ai-analysis-box">
+                <h3>分析結果</h3>
+                <div class="ai-response">
+                    <p>解析結果は、ここに表示されます...</p>
+                </div>
+            </div>
+        </main> 
+        
+    </div>
+</body>
+</html>                    
+
+                
+
+

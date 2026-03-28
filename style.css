@@ -225,3 +225,88 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
                  margin-top: 30px;}
 
 @media (max-width: 600px){.input-section{flex-direction: column;}}
+
+-------------------------------------------
+
+/*クイズページ*/
+.quiz-container{background: #ffffff;
+                border-radius: 15px;
+                padding: 30px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+                border: 2px solid #f1f1f1;
+                text-align: center;
+                max-width: 700px;
+                margin: 0 auto;}
+
+.quiz-header{margin-bottom: 30px;}
+
+.quiz-number{background: #ffc107;
+             color: #333;
+             padding: 5px 15px;
+             border-radius: 20px;
+             font-weight: bold;
+             font-size: 0.9rem;}
+
+.quiz-choices{display: flex;
+              flex-direction: column;
+              gap: 15px;}
+
+.choice-btn{background: #f8f9fa;
+            border: 2px solid #28a745;
+            padding: 15px;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;}
+
+.choice-btn:hover{background: #28a745;
+                  color: white;
+                  transform: translateY(-2px);}
+
+.result-area{margin-top: 30px;
+             padding: 20px;
+             border-radius: 10px;
+             font-size: 1.5rem;
+             font-weight: bold;
+             display: none;}
+
+/*正解、不正解の色*/
+.correct{background: #d4edda;
+         color: #155724;
+         display: block;}
+
+.incorrect{background: #f8d7da;
+           color: #721c24;
+           display: block;}
+
+/*サイドメニュー*/
+.sideNav{position: absolute;
+         top: 20px;
+         right: 30px;
+         width: auto;
+         padding: 0;
+         background: none;
+         border: none;}
+
+.sideNav h3{display: none;}
+
+.sideNav ul{list-style: none;
+            padding: 0;
+            margin: 0;}
+
+.sideNav li{margin-bottom: 10px;}
+ 
+.sideNav a{display: inline-block;
+           padding: 8px 15px;
+           background: #ffffff;
+           border-radius: 20px;
+           text-decoration: none;
+           color: #333;
+           font-size: 0.9rem;
+           border: 10x solid #ddd;
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+           transition: 0.3s;}
+
+.sideNav a:hover{background: #ffc107;
+                 color: #fff;
+                 border-color: #ffc107;}

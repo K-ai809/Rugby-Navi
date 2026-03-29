@@ -310,3 +310,52 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
 .sideNav a:hover{background: #ffc107;
                  color: #fff;
                  border-color: #ffc107;}
+
+
+---------------------------------------------------------
+
+/*スタジアムページ*/
+.stadium-grid{display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: 25px;
+              margin-top: 30px;}
+
+.stadium-card{background: #fff;
+              border-radius: 12px;
+              overflow: hidden;
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+              border: 1px solid #eee;
+              transition: transform 0.3s;}
+
+.stadium-card:hover{transform: translateY(-5px);}
+
+.stadium-info{padding: 20px;}
+
+.area-tag{background: #e60012;
+          color: #fff;
+          font-size: 0.75rem;
+          padding: 3px 10px;
+          border-radius: 4px;
+          font-weight: bold;}
+
+.stadium-card h3{margin: 10px 0;
+                 font-size: 1.2rem;
+                 color: #333;}
+
+.stadium-card p{font-size: 0.9rem;
+                color: #666;
+                line-height: 1.5;
+                margin-bottom: 20px;}
+
+.btn-detail{width: 100%;
+            padding: 10px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;}
+
+.btn-detail:hover{background: #333;
+                  color: #fff;}
+

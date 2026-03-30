@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>ポジション図鑑 | ラグビーナビ</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <header id="pageHead">
+        <h1>ポジション図鑑 🏉</h1>
+      </header>
+
+      <div id="pageBody">
+        <nav class="sideNav">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <h2>15人制ポジション解説</h2>
+            <p>ラグビーにはどんな人にも「自分にピッタリな場所」が必ずあります。</p>
+
+            <div class="table-container">
+                <table class="position-table">
+                    <thead>
+                        <tr>
+                            <th>番号</th>
+                            <th>名称</th>
+                            <th>役割・説明</th>
+                            <th>向いている人、体型</th>
+                            <th>有名プレイヤー</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1番・3番</td>
+                            <td>プロップ(PR)</td>
+                            <td>スクラムの最前線で体を張る「柱」</td>
+                            <td>ガッチリ体型・忍耐強い</td>
+                            <td><button class="player-btn" onclick="showPlayer('PR')">表示</button></td>
+                        </tr>
+
+                         <tr>
+                            <td>9番</td>
+                            <td>スクラムハーフ(SH)</td>
+                            <td>FWとBKを繋ぐチームの心臓</td>
+                            <td>小柄・運動量が多い・強気</td>
+                            <td><button class="player-btn" onclick="showPlayer('SH')">表示</button></td>
+                        </tr>
+
+                         <tr>
+                            <td>10番</td>
+                            <td>スタンドオフ(SO)</td>
+                            <td>チーム全体を指揮する司令塔</td>
+                            <td>キャプテンシーがある・視野が広い</td>
+                            <td><button class="player-btn" onclick="showPlayer('SO')">表示</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="player-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal()">&times;</span>
+                    <h3 id="modal-position-name"></h3>
+                    <p id="modal-player-example"></p>
+                </div>
+            </div>
+        </main>
+      </div>
+    </body>
+</html>
+
+    

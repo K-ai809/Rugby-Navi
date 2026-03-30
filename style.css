@@ -359,3 +359,61 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
 .btn-detail:hover{background: #333;
                   color: #fff;}
 
+
+--------------------------------------------------
+/*ポジション図鑑の表*/
+.table-container{overflow: auto;
+                 margin-top: 20px;}
+
+.position-table{width: 100%;
+                border-collapse: collapse;
+                background: #fff;
+                border-radius: 10px;
+                overflow: hidden;}
+
+.position-table th, .position-table td{border: 1px solid #eee;
+                                       padding: 15px;
+                                       text-align: left;}
+
+.position-table th{background: #28a745;
+                   color: white;}
+
+.position-table tr:nth-child(even){background: #f9f9f9;}
+
+/*有名プレイヤー*/
+.player-btn{background: #ffc107;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;}
+
+-----/*浮き出る演出（モーダル）*/----
+.modal{display: none;
+       position: fixed;
+       z-index: 1000;
+       left: 0;
+       top: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(0, 0, 0, 0.5);}
+
+.modal-content{background-color: #fff;
+               margin: 15% auto;
+               padding: 30px;
+               border-radius: 15px;
+               width: 50%;
+               max-width: 400px;
+               text-align: center;
+               position: relative;
+               animation: fadeIn 0.4s ease-out;}
+
+@keyframes fadeIn{from{opacity: 0; transform: translateY(-20px);} to{opacity: 1; transform: translateY(0);}}
+
+.close-btn{position: absolute;
+           right: 20px;
+           top: 10px;
+           font-size: 28px;
+           cursor: pointer;}
+
+

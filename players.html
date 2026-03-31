@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>注目選手 | ラグビーナビ</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header id="pageHead">
+            <h1>推せる！注目選手</h1>
+            <p>「世界」「リーグワン」「大学リーグ」での推せる！注目選手をまとめました</p>
+        </header>
+
+        <div id="pageBody">
+            <nav class="sideNav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                </ul>
+            </nav>
+
+            <main class="content-area">
+                <div class="category-section">
+                    <h2>🌎 世界のスター</h2>
+                    <div class="player-grid">
+                        <div class="player-card">
+                            <div class="player-tag">SO</div>
+                            <h3>リッチー・モウンガ</h3>
+                            <p>ニュージーランド代表。リーグワンの「東芝ブレイブルーパス東京」在籍。</p>
+                            <button class="btn-open-modal" onclick="openPlayerModal('Mounga')">特徴を詳しく</button>
+                        </div>
+                    </div>
+
+                    <h2>リーグワン</h2>
+                    <div class="player-grid">
+                        <div class="player-card">
+                            <div class="player-tag">HO</div>
+                            <h3>坂手 淳史</h3>
+                            <p>日本代表(47cap)安定したプレーと、キャプテンシーが魅力</p>
+                            <button class="btn-open-modal" onclick="openPlayerModal('Sakate')">特徴を詳しく</button>
+                        </div>
+                    </div>
+
+                    <h2>大学リーグ</h2>
+                    <div class="player-grid">
+                        <div class="player-card">
+                            <div class="player-tag">LO/FL</div>
+                            <h3>石橋チューカ</h3>
+                            <p>「リーチ2世」とも呼ばれ、関西リーグベスト15にも選出</p>
+                            <button class="btn-open-modal" onclick="openPlayerModal('Isibashi')">特徴を詳しく</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="playerModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closePlayerModal()">&times;</span>
+                        <div id="modal-body">
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

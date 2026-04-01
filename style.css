@@ -206,6 +206,7 @@ body{font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragin
 .input-card{flex: 1;
             background: #fdfdfd;
             padding: 15px;
+            margin-bottom: 20px;
             border: 1px solid #ddd;
             border-radius: 10px;}
 

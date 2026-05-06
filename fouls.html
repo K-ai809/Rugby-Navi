@@ -16,9 +16,14 @@
             <h2>基本の「き」</h2>
             <p>危険なプレーは自分だけでなく、相手にも危害を加える可能性があるため、よく確認しましょう!</p>
 
-            <div class="serch-box">
-                <input type="text" placeholder="ルールを検索">
-                <button>🔍</button>
+            <div class="contents">
+                <form method="get" action="#" class="search-form">
+                   <input type="text" id="search-box"  placeholder="キーワードを検索">
+                  <button>🔍</button>
+                </form>
+                
+                <div id="termList"></div>
+
             </div>
 
             <table class="table">
@@ -50,6 +55,6 @@
         </main>
 
     </div>
-
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

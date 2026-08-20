@@ -16,9 +16,14 @@
             <h2>基本の「き」</h2>
             <p>ラグビーは、15人の仲間と共に、トライを目指すスポーツです。</p>
 
-            <div class="serch-box">
-                <input type="text" placeholder="ルールを検索">
-                <button>🔍</button>
+            <div class="contents">
+                <form method="get" action="#" class="search-form">
+                   <input type="text" id="search-box"  placeholder="キーワードを検索">
+                  <button type="button">🔍</button>
+                </form>
+                
+                <div id="termList"></div>
+
             </div>
 
             <table class="table">
@@ -46,6 +51,6 @@
         </main>
 
     </div>
-
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

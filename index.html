@@ -2,66 +2,227 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ラグビーナビ - ホーム</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ラグビーナビ | RUGBYNAVI</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
- <header id="pageHead">
-    <h1 id="siteTitle">ラグビーナビ</h1>
-    <p id="catchcopy">ラグビーの「知りたい！」が集結</p>
- </header>
-
- <nav class="topNavi">
-    <ul>
-        <li><a href="rules.html" class="navibtn">ルールを見る</a></li>
-        <li><a href="fouls.html" class="navibtn">反則を見る</a></li>
-        <li><a href="guide.html" class="navibtn">動画を解説してもらう</a></li>
-        <li><a href="quiz.html" class="navibtn">クイズに挑戦</a></li>
-    </ul>
- </nav>
- 
-<div id="pageBody">
-    <header class="slideshow-area">
-      <div class="slideshow-container">
-        <img class="fade"   src="image/img_01.jpg" alt="" width="500" height="333">
-        <img class="fade"   src="image/img_05.jpg" alt="" width="500" height="333">
-        <img class="fade"   src="image/img_06.jpg" alt="" width="500" height="333">
-      </div>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="site-logo">RUGBYNAVI</div>
+        </div>
     </header>
- </div>
- 
- <aside class="sideNavi">
-    <h3>📍 ナビゲーション</h3>
-    <ul>
-        <li><a href="stadium.html">全国の会場情報</a></li>
-        <li><a href="#">チケット購入ガイド</a> </li>
-        <li><a href="#">観戦マナー・おすすめ持ち物</a></li>
-    </ul>
-  </aside>
 
-  <div class="main-massage">
-    <h2>ALL FOR ONE,ONE FOR ALL</h2>
-    <p>ラグビーは、一人ひとりが役割を果たし、全員で勝利を目指すスポーツです。<br>
-       このサイトでは、初心者の方でもラグビーを100%楽しめる情報を発信しています。</p>
-  </div>
- 
-  <section class="bottom-section">
-    <div class="info-card">
-        <h2>ポジション図鑑</h2>
-        <img src="image/img_02.jpg" alt="" width="300" height="200" class="card-img">
-        <p>全15のポジションを徹底解説。あなたの適正はどこ？</p>
-        <a href="positions.html" class="btn">詳しく見る</a>
-    </div>
+    <section class="hero-visual">
+        <img src="image/img-11.jpg" alt="ラグビーメインビジュアル" class="hero-img">
+        <div class="hero-content">
+            <h1 class="hero-title">RUGBYNAVI</h1>
+            <p class="hero-subtitle">初心者から経験者まで、すべてのラグビーファンへ</p>
+        </div>
+    </section>
 
-    <div class="info-card">
-        <h2>🌟「推せる」注目選手</h2>
-        <img src="image/img_03.jpg" alt="" width="300" height="200" class="card-img">
-        <p>今、「世界、リーグワン、大学リーグ」で絶対見ておくべきスターをピックアップ！</p>
-        <a href="players.html" class="btn">詳しく見る</a>
-    </div>
-  </section>
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li><a href="rules.html">ルール一覧</a></li>
+            <li><a href="ai-explain.html">AI解説</a></li>
 
-<script src="script.js"></script>
-<script type="module" src="app.js"></script>
+            <li class="has-submenu">
+              <a href="#">日本ラグビー</a>
+              <ul class="sub-menu">
+                <li><a href="league-one.html">リーグワン全チーム解説</a></li>
+                <li><a href="J.best15-history.html">歴代日本ベスト15</a></li>
+                <li><a href="J.best15-current.html">現在日本ベスト15</a></li>
+               </ul>
+            </li>
+
+             <li class="has-submenu">
+              <a href="#">世界ラグビー</a>
+              <ul class="sub-menu">
+                <li><a href="world-teams.html">海外チーム解説</a></li>
+                <li><a href="W.best15-history.html">歴代世界ベスト15 </a></li>
+                <li><a href="W.best15-current.html">現在世界ベスト15</a></li>
+               </ul>
+             </li>
+
+           
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="topic-section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title-en">TOPIC!</h2>
+                <p class="section-title-ja">記事一覧</p>
+            </div>
+            
+            <div class="topic-layout">
+                <div class="article-grid">
+
+                    <article class="article-card">
+                      <a href="topic-worldcup2027.html" class="card-link">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/300/300?random=2" alt="記事サムネイル">
+                        </div>
+                        <div class="card-text">
+                            <p>2027ラグビーW杯での日本代表の期待ポイント</p>
+                            <time>2026.09.04 • NEWS</time>
+                        </div>
+                      </a>
+                    </article>
+
+                    <article class="article-card">
+                        <a href="topic-future-players.html" class="card-link">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/300/300?random=3" alt="記事サムネイル">
+                        </div>
+                        <div class="card-text">
+                            <p>日本代表のこれからの期待選手</p>
+                            <time>2026.09.03 • RULE</time>
+                        </div>
+                        </a>
+                    </article>
+
+                    <article class="article-card">
+                        <a href="topic-prediction.html" class="card-link">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/300/300?random=4" alt="記事サムネイル">
+                        </div>
+                        <div class="card-text">
+                            <p>日本代表はどこまでいける？将来的な順位予想</p>
+                            <time>2026.09.02 • INTERVIEW</time>
+                        </div>
+                        </a>
+                    </article>
+
+                    <article class="article-card">
+                        <a href="topic-overseas-players.html" class="card-link">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/300/300?random=5" alt="記事サムネイル">
+                        </div>
+                        <div class="card-text">
+                            <p>海外リーグで活躍する日本人選手たちの現状と今後の展望。</p>
+                            <time>2026.09.01 • REPORT</time>
+                        </div>
+                        </a>
+                    </article>
+
+                    <article class="article-card">
+                        <a href="topic-gourmet.html" class="card-link">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/300/300?random=6" alt="記事サムネイル">
+                        </div>
+                        <div class="card-text">
+                            <p>ラグビー観戦のお供に！スタジアム周辺の絶品グルメ特集。</p>
+                            <time>2026.08.31 • WORLD</time>
+                        </div>
+                        </a>
+                    </article>
+
+                    <article class="article-card">
+                        <a href="topic-uniforms.html" class="card-link">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/300/300?random=7" alt="記事サムネイル">
+                        </div>
+                        <div class="card-text">
+                            <p>各チームユニフォーム解説。</p>
+                            <time>2026.08.30 • EAT</time>
+                        </div>
+                        </a>
+                    </article>
+
+                    <article class="article-card">
+                        <a href="topic-find-team.html" class="card-link">
+                        <div class="card-img-wrapper">
+                            <img src="https://picsum.photos/300/300?random=8" alt="記事サムネイル">
+                        </div>
+                        <div class="card-text">
+                            <p>リーグワン<br>推しチームの探し方</p>
+                            <time>2026.08.29 • THINK</time>
+                        </div>
+                        </a>
+                    </article>
+                   
+                </div>
+
+               
+            </div>
+
+            <div class="slider-controls">
+                <button class="slider-arrow">&larr;</button>
+                <span class="slider-page">01 / 02</span>
+                <button class="slider-arrow">&rarr;</button>
+            </div>
+        </section>
+
+        <section class="player-section">
+            <div class="player-wrapper">
+                <div class="player-inner-border">
+                    <h2 class="player-section-title">PLAYER <span>選手紹介</span></h2>
+                    <div class="player-blocks">
+                        <a href="highschool.html" class="player-block">
+                            <div class="block-icon">🏫</div>
+                            <div class="block-content">
+                                <h3>高校ラグビー</h3>
+                                <p>全国の注目高校生プレイヤー特集</p>
+                            </div>
+                        </a>
+                        <a href="university.html" class="player-block">
+                            <div class="block-icon">🎓</div>
+                            <div class="block-content">
+                                <h3>大学ラグビー</h3>
+                                <p>全国の注目大学生プレイヤー特集</p>
+                            </div>
+                        </a>
+                        <a href="league-one-players.html" class="player-block">
+                            <div class="block-icon">🏟️</div>
+                            <div class="block-content">
+                                <h3>リーグワン</h3>
+                                <p>リーグワン所属の注目プロ特集</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="editor-section">
+            <div class="editor-card">
+                <img src="https://picsum.photos/150/150?random=10" alt="編集者プロフィール" class="editor-img">
+                <div class="editor-info">
+                    <h3 class="editor-name">Editor <span>ラグビー・タン</span></h3>
+                    <p class="editor-bio">ラグビー歴13年。競技歴13年の経験を活かし、初心者にも分かりやすいルール解説から、経験者向けの戦術分析まで幅広く執筆。ラグビーの魅力を多角的に伝えます。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title-en">CONTACT</h2>
+                <p class="section-title-ja">お問い合わせ</p>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">お名前</label>
+                    <input type="text" id="name" placeholder="山田 太郎">
+                </div>
+                <div class="form-group">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email" placeholder="example@rugbynavi.jp">
+                </div>
+                <div class="form-group">
+                    <label for="message">メッセージ</label>
+                    <textarea id="message" rows="5" placeholder="お問い合わせ内容を入力してください"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">送信する</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 RUGBYNAVI. All rights reserved.</p>
+    </footer>
 </body>
 </html>

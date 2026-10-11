@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI動画解説 | RUGBYNAVI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="ai-page">
+    <!-- サイトタイトル（共通） -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="site-logo">RUGBYNAVI</a>
+        </div>
+    </header>
+
+    <main class="main-content ai-container">
+        
+        <!-- ページヘッダー -->
+        <header class="ai-header">
+            <h1 class="ai-title">AI VIDEO ANALYSIS</h1>
+            <p class="ai-subtitle">難解なプレーも、AIがすぐに図解とテキストで解説します。</p>
+        </header>
+
+        <!-- このページの使い方 -->
+        <section class="ai-instruction">
+            <h2 class="ai-section-title">使い方</h2>
+            <div class="step-cards">
+                <div class="step-card">
+                    <div class="step-number">STEP 01</div>
+                    <div class="step-icon">🔗</div>
+                    <h3>動画をセット</h3>
+                    <p>SNSや動画サイトのURLを入力するか、お手持ちの動画ファイルをアップロードします。</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">STEP 02</div>
+                    <div class="step-icon">⚙️</div>
+                    <h3>AIが自動解析</h3>
+                    <p>最新のラグビー特化型AIが、選手の動きや反則、戦術を瞬時に分析します。</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">STEP 03</div>
+                    <div class="step-icon">💡</div>
+                    <h3>解説をチェック</h3>
+                    <p>分かりやすい図解やルール説明とともに、解析結果が画面に表示されます。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 入力エリア -->
+        <section class="ai-input-section">
+            <div class="input-panel">
+                
+                <!-- URL入力 -->
+                <div class="input-group">
+                    <label for="video-url" class="input-label">ネット上の動画URLから解説する</label>
+                    <div class="url-input-wrapper">
+                        <input type="url" id="video-url" placeholder="https://example.com/video..." class="ai-input">
+                        <button type="button" class="ai-btn-primary">URLを解析</button>
+                    </div>
+                </div>
+
+                <div class="input-divider"><span>OR</span></div>
+
+                <!-- ファイルアップロード -->
+                <div class="input-group">
+                    <label class="input-label">端末の動画ファイルから解説する</label>
+                    <div class="upload-area">
+                        <div class="upload-icon">📁</div>
+                        <p class="upload-text">ここに動画ファイルをドラッグ＆ドロップ<br>または</p>
+                        <label for="file-upload" class="ai-btn-secondary">ファイルを選択</label>
+                        <input type="file" id="file-upload" accept="video/mp4,video/x-m4v,video/*" class="file-hidden">
+                        <p class="upload-note">※対応フォーマット: MP4, MOV (最大50MB)</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 解説結果出力エリア（初期状態はプレースホルダーとして表示） -->
+        <section class="ai-result-section">
+            <h2 class="ai-section-title">解析結果</h2>
+            <div class="result-placeholder">
+                <div class="spinner"></div>
+                <p>動画がセットされると、ここにAIの解説結果が表示されます。</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- フッター（共通） -->
+    <footer class="site-footer">
+        <p>&copy; 2026 RUGBYNAVI. All rights reserved.</p>
+    </footer>
+</body>
+</html>

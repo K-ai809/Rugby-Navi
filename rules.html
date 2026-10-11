@@ -1,56 +1,153 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head> 
+<head>
     <meta charset="UTF-8">
-    <title>ルール解説 | ラグビーナビ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ラグビールール一覧 | RUGBYNAVI</title>
     <link rel="stylesheet" href="style.css">
+    <!-- フォント読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-
-<body>
-    <header id="pageHead">
-        <h1>ラグビーのルール</h1>
+<body class="article-page">
+    <!-- サイトタイトル（共通） -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="site-logo">RUGBYNAVI</a>
+        </div>
     </header>
 
-    <div id="pageBody">
-        <main class="content-area">
-            <h2>基本の「き」</h2>
-            <p>ラグビーは、15人の仲間と共に、トライを目指すスポーツです。</p>
-
-            <div class="contents">
-                <form method="get" action="#" class="search-form">
-                   <input type="text" id="search-box"  placeholder="キーワードを検索">
-                  <button type="button">🔍</button>
-                </form>
-                
-                <div id="termList"></div>
-
+    <!-- メインコンテンツ -->
+    <main class="main-content article-container">
+        
+        <!-- 記事ヘッダー -->
+        <header class="article-header">
+            <h1 class="article-title">ラグビールール一覧：初心者でも分かる基本と反則</h1>
+            <div class="article-meta">
+                <time>2026.10.05</time>
+                <span class="category-label">RULE</span>
             </div>
+        </header>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ルール名</th>
-                        <th>ルール解説</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="name">50-22</td>
-                        <td>自陣50メートルラインより手前から蹴ったボールが、敵陣22メートルライン以降でバインドして外に出た場合、マイボールラインアウトで開始できる。</td>
-                    </tr>
-                    <tr>
-                        <td class="name">マーク</td>
-                        <td>自陣22メートルエリア内で相手からのキックを捕る際「マーク！」と叫ぶと、その地点からフリーキックで再開できる</td>
-                    </tr>
-                    <tr>
-                        <td class="name">ゴールライン・ドロップアウト</td>
-                        <td>守備側が自陣ゴール内でボールを置いた際、ゴールライン上からキックで再開できる。</td>
-                    </tr>
-                </tbody>
-            </table>
-        </main>
+        <!-- 目次（参考画像レイアウト踏襲） -->
+        <nav class="toc-box">
+            <div class="toc-title">目次 <span>[閉じる]</span></div>
+            <ul class="toc-list">
+                <li><a href="#basic-rules">1. これだけは覚えたいルール</a></li>
+                <li><a href="#dangerous-plays">2. 危険なプレーとペナルティ</a></li>
+                <li><a href="#confusing-rules">3. 間違えやすいルールを比較解説</a></li>
+                <li><a href="#summary">4. まとめ</a></li>
+            </ul>
+        </nav>
 
-    </div>
-  <script type="text/javascript" src="script.js"></script>
+        <!-- 記事本文 -->
+        <div class="article-body">
+            
+            <!-- セクション1: 基本ルール -->
+            <section id="basic-rules" class="article-section">
+                <h2>1. これだけは覚えたいルール</h2>
+                <p>ラグビーのルールは複雑だと思われがちですが、根底にある原則は非常にシンプルです。まずは試合観戦が楽しくなる3つの基本ルールを押さえましょう。</p>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">🏉</div>
+                    <div class="rule-text">
+                        <h3>スローフォワード</h3>
+                        <p>ボールを前に投げてはいけない、というラグビー最大の大原則です。パスは必ず自分より後ろにいる味方に出す必要があります。</p>
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">👐</div>
+                    <div class="rule-text">
+                        <h3>ノックオン</h3>
+                        <p>ボールを前に落としてしまう反則です。キャッチミスなどでボールが前方にこぼれると適用され、相手ボールのスクラムで試合が再開されます。</p>
+                    </div>
+                </div>
+
+                <div class="rule-card">
+                    <div class="rule-icon">🛑</div>
+                    <div class="rule-text">
+                        <h3>オフサイド</h3>
+                        <p>プレーしてはいけない「オフサイドライン」より前でプレーに参加する反則です。密集戦などで発生しやすく、ペナルティキックが相手に与えられます。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- セクション2: 危険なプレー -->
+            <section id="dangerous-plays" class="article-section">
+                <h2>2. 危険なプレーとペナルティ</h2>
+                <p>ラグビーはコンタクトスポーツであるため、選手の安全を守るルールが厳格に定められています。危険なプレーには重いペナルティ（シンビン：一時退場やレッドカード：退場）が科されます。</p>
+                
+                <div class="image-placeholder">
+                    <img src="https://picsum.photos/800/400?random=11" alt="危険なプレーの解説イメージ（ダミー）">
+                    <p class="image-caption">安全なタックル位置は肩より下と厳格に定められている</p>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>反則名</th>
+                            <th>危険度</th>
+                            <th>起こりうる怪我</th>
+                            <th>想定離脱期間</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>ハイタックル</strong><br>（肩より上へのタックル）</td>
+                            <td><span class="danger-high">高</span></td>
+                            <td>脳震盪、むち打ち、顔面骨折</td>
+                            <td>数週間 〜 数ヶ月</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ノーバインドタックル</strong><br>（腕で抱き込まず肩を当てる）</td>
+                            <td><span class="danger-mid">中</span></td>
+                            <td>肩の脱臼、打撲、肋骨骨折</td>
+                            <td>数週間</td>
+                        </tr>
+                        <tr>
+                            <td><strong>危険なクリーンアウト</strong><br>（首元へのチャージ等）</td>
+                            <td><span class="danger-high">高</span></td>
+                            <td>頸椎損傷、骨折</td>
+                            <td>数ヶ月 〜 長期</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- セクション3: 間違えやすいルール -->
+            <section id="confusing-rules" class="article-section">
+                <h2>3. 間違えやすいルールを比較解説</h2>
+                <p>試合中、レフリーの笛が鳴った際によく混同される2つの反則を比較して解説します。</p>
+
+                <div class="comparison-box">
+                    <div class="compare-item">
+                        <h3 class="compare-title">ノット・リリース・ザ・ボール</h3>
+                        <div class="compare-target">【ボールを持っていた選手】の反則</div>
+                        <p>タックルされて倒された後、<strong>ボールを手放さずに抱え込んでしまう</strong>反則です。倒れた選手は速やかにボールを離さなければなりません。</p>
+                    </div>
+                    <div class="compare-vs">VS</div>
+                    <div class="compare-item">
+                        <h3 class="compare-title">ノット・ロール・アウェイ</h3>
+                        <div class="compare-target">【タックルした選手】の反則</div>
+                        <p>タックルをして相手を倒した後、<strong>その場からすぐにどかない（転がって離れない）</strong>反則です。相手の球出しを邪魔したと判定されます。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- セクション4: まとめ -->
+            <section id="summary" class="article-section summary-box">
+                <h2>4. まとめ</h2>
+                <p>ラグビーのルールは一見難解ですが、「ボールを前に落とさない・投げない」「密集でボールの出所を邪魔しない」「危険なプレーをしない」という本質を理解すれば、試合の流れがグッと掴みやすくなります。まずはこのページで紹介した基本を片手に、実際の試合観戦を楽しんでみてください！</p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- フッター（共通） -->
+    <footer class="site-footer">
+        <p>&copy; 2026 RUGBYNAVI. All rights reserved.</p>
+    </footer>
 </body>
 </html>

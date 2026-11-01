@@ -896,7 +896,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function checkApiConnection() {
     try {
         // Javaサーバーの窓口へアクセス
-        const response = await fetch('http://localhost:8080/api/test');
+        const response = await fetch('https://rugby-api-backend.onrender.com/api/test');
         // エラーなく通信できたか確認
         if (!response.ok) {
             throw new Error('サーバーとの通信に失敗しました');
@@ -995,7 +995,7 @@ class AiAnalysisFeatures {
         const formData = new FormData();
         formData.append('videoFile', file);
         try {
-            const response = await fetch('http://localhost:8080/api/analyze-video', {
+            const response = await fetch('https://rugby-api-backend.onrender.com/api/analyze-video', {
                 method: 'POST',
                 body: formData,
             });
@@ -1087,8 +1087,7 @@ class ContactFormFeatures {
             this.submitBtn.style.cursor = 'not-allowed';
             try {
                 // Spring BootのAPIエンドポイントへデータを送信
-                // ※バックエンド側（Spring Boot）が http://localhost:8080 で起動している前提です
-                const response = await fetch('http://localhost:8080/api/contact', {
+                const response = await fetch('https://rugby-api-backend.onrender.com/api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

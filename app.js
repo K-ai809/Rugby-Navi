@@ -446,203 +446,6 @@ document.addEventListener('DOMContentLoaded', () => {
  * ai-analysis.ts
  * AI解説ページ専用の機能
  */
-class AiAnalysisFeatures {
-    urlInput;
-    urlBtn;
-    fileInput;
-    uploadArea;
-    resultSection;
-    resultPlaceholder;
-    constructor() {
-        this.urlInput = document.getElementById('video-url');
-        this.urlBtn = document.querySelector('.url-input-wrapper .ai-btn-primary');
-        this.fileInput = document.getElementById('file-upload');
-        this.uploadArea = document.querySelector('.upload-area');
-        this.resultSection = document.querySelector('.ai-result-section');
-        this.resultPlaceholder = document.querySelector('.result-placeholder');
-        this.init();
-    }
-    init() {
-        this.initUrlAnalysis();
-        this.initFileUpload();
-        this.initDragAndDrop();
-    }
-    /**
-     * 追加機能：URLの簡易バリデーションと解析処理のトリガー
-     */
-    initUrlAnalysis() {
-        if (!this.urlBtn || !this.urlInput)
-            return;
-        this.urlBtn.addEventListener('click', () => {
-            const url = this.urlInput.value.trim();
-            // 簡易バリデーション (http:// または https:// で始まるか)
-            const isValidUrl = /^https?:\/\//.test(url);
-            if (!url) {
-                alert('動画のURLを入力してください。');
-                return;
-            }
-            if (!isValidUrl) {
-                alert('有効なURL（http:// または https:// から始まる文字列）を入力してください。');
-                return;
-            }
-            // バリデーション通過後、解析モック処理を開始
-            this.startMockAnalysis('URL: ' + url);
-        });
-    }
-    /**
-     * 必須機能：写真フォルダ等からの動画ファイル選択機能
-     */
-    initFileUpload() {
-        if (!this.fileInput)
-            return;
-        this.fileInput.addEventListener('change', (e) => {
-            const target = e.target;
-            if (target.files && target.files.length > 0) {
-                const file = target.files[0];
-                this.handleFile(file);
-            }
-        });
-    }
-    /**
-     * 追加機能：ドラッグ＆ドロップでのファイルアップロードUI
-     */
-    initDragAndDrop() {
-        if (!this.uploadArea)
-            return;
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-            this.uploadArea.addEventListener(eventName, (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-            }, false);
-        });
-        // ホバー時のUIフィードバック
-        ['dragenter', 'dragover'].forEach(eventName => {
-            this.uploadArea.addEventListener(eventName, () => {
-                this.uploadArea.style.borderColor = 'var(--color-text)';
-                this.uploadArea.style.backgroundColor = 'var(--color-white)';
-            }, false);
-        });
-        ['dragleave', 'drop'].forEach(eventName => {
-            this.uploadArea.addEventListener(eventName, () => {
-                this.uploadArea.style.borderColor = 'var(--color-border)';
-                this.uploadArea.style.backgroundColor = 'var(--color-bg)';
-            }, false);
-        });
-        // ドロップ時の処理
-        this.uploadArea.addEventListener('drop', (e) => {
-            const dt = e.dataTransfer;
-            if (dt && dt.files && dt.files.length > 0) {
-                const file = dt.files[0];
-                // input type="file" にドロップされたファイルをセット
-                if (this.fileInput) {
-                    const dataTransfer = new DataTransfer();
-                    dataTransfer.items.add(file);
-                    this.fileInput.files = dataTransfer.files;
-                }
-                this.handleFile(file);
-            }
-        }, false);
-    }
-    /**
-     * ファイル処理の共通ロジック
-     */
-    handleFile(file) {
-        // 簡易なファイルチェック (動画ファイルか、サイズは適切か等)
-        if (!file.type.startsWith('video/')) {
-            alert('動画ファイル（MP4, MOV等）を選択してください。');
-            // inputリセット
-            if (this.fileInput)
-                this.fileInput.value = '';
-            return;
-        }
-        // サイズチェック (例: 50MB = 50 * 1024 * 1024 bytes)
-        const MAX_SIZE = 50 * 1024 * 1024;
-        if (file.size > MAX_SIZE) {
-            alert('ファイルサイズが大きすぎます。50MB以下のファイルを選択してください。');
-            if (this.fileInput)
-                this.fileInput.value = '';
-            return;
-        }
-        this.startMockAnalysis('ファイル: ' + file.name);
-    }
-    /**
-     * 追加機能：解析ボタン押下時のローディングアニメーション（モック処理）
-     */
-    startMockAnalysis(sourceName) {
-        if (!this.resultPlaceholder)
-            return;
-        // 現在の位置までスクロール
-        this.resultSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // 1. ローディングUIの構築（プログレスバー追加）
-        this.resultPlaceholder.innerHTML = `
-      <div class="spinner"></div>
-      <p style="font-weight:700;">AIが動画を解析中です... (<span id="progress-text">0</span>%)</p>
-      <p style="font-size: 0.85rem; color: var(--color-text-light);">${sourceName}</p>
-      <div style="width: 100%; max-width: 400px; height: 6px; background-color: var(--color-border); border-radius: 3px; margin-top: 15px; overflow: hidden;">
-        <div id="progress-bar" style="width: 0%; height: 100%; background-color: var(--color-text); transition: width 0.3s ease;"></div>
-      </div>
-    `;
-        const progressBar = document.getElementById('progress-bar');
-        const progressText = document.getElementById('progress-text');
-        let progress = 0;
-        // 2. プログレスバーを進めるタイマー処理
-        const intervalId = setInterval(() => {
-            // 乱数で進捗をばらつかせる
-            progress += Math.floor(Math.random() * 15) + 5;
-            if (progress >= 100) {
-                progress = 100;
-                clearInterval(intervalId);
-                // 100%になったら少し待ってから結果画面を表示
-                setTimeout(() => this.showAnalysisResult(), 500);
-            }
-            if (progressBar)
-                progressBar.style.width = `${progress}%`;
-            if (progressText)
-                progressText.textContent = progress.toString();
-        }, 300);
-    }
-    /**
-     * 解析完了後の結果表示UI構築（モック）
-     */
-    showAnalysisResult() {
-        if (!this.resultPlaceholder)
-            return;
-        // 解析結果のダミーDOMを生成（今回は静的な文字列でモック）
-        this.resultPlaceholder.style.backgroundColor = 'var(--color-white)';
-        this.resultPlaceholder.style.padding = '40px';
-        this.resultPlaceholder.innerHTML = `
-      <div style="text-align:left; width: 100%;">
-        <h3 style="font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid var(--color-text); padding-bottom: 10px;">✅ 解析が完了しました</h3>
-        
-        <div style="display:flex; gap: 20px; flex-wrap: wrap;">
-          <div style="flex:1; min-width: 280px;">
-            <div style="background-color: var(--color-bg); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center; border-radius: 8px; margin-bottom: 15px;">
-              <span style="color: var(--color-text-light);">[図解生成モック用画像領域]</span>
-            </div>
-          </div>
-          <div style="flex:1; min-width: 280px;">
-            <h4 style="font-size: 1.1rem; margin-bottom: 10px;">AIの解説ポイント：</h4>
-            <ul style="list-style: none; padding: 0;">
-              <li style="margin-bottom: 10px; padding-left: 1.5em; position: relative;">
-                <span style="position: absolute; left: 0; top: 0;">🏉</span>
-                <strong style="color: var(--color-accent);">オフサイドの可能性</strong><br>
-                ラック形成時、青ジャージの選手がオフサイドライン（最後尾の選手の足元）より前に位置しているとAIが判定しました。
-              </li>
-              <li style="margin-bottom: 10px; padding-left: 1.5em; position: relative;">
-                <span style="position: absolute; left: 0; top: 0;">🏉</span>
-                <strong>素晴らしいジャッカル</strong><br>
-                タックル成立後、赤ジャージの選手が素早くボールに絡み（ノット・リリース・ザ・ボール誘発）、完璧なタイミングでのジャッカルを成功させています。
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div style="text-align:center; margin-top: 30px;">
-           <button class="ai-btn-secondary" onclick="location.reload()">別の動画を解析する</button>
-        </div>
-      </div>
-    `;
-    }
-}
 // DOM読み込み完了時に実行
 document.addEventListener('DOMContentLoaded', () => {
     new AiAnalysisFeatures();
@@ -1088,6 +891,234 @@ class PlayerDirectoryFeatures {
 // DOM読み込み完了時に実行
 document.addEventListener('DOMContentLoaded', () => {
     new PlayerDirectoryFeatures();
+});
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+async function checkApiConnection() {
+    try {
+        // Javaサーバーの窓口へアクセス
+        const response = await fetch('http://localhost:8080/api/test');
+        // エラーなく通信できたか確認
+        if (!response.ok) {
+            throw new Error('サーバーとの通信に失敗しました');
+        }
+        // 文字列データとして受け取る
+        const data = await response.text();
+        console.log('Javaサーバーからの応答:', data);
+    }
+    catch (error) {
+        console.error('エラー発生:', error);
+    }
+}
+// 画面の読み込みが完了した直後に通信を実行
+document.addEventListener('DOMContentLoaded', () => {
+    checkApiConnection();
+});
+/**
+ * ------------------------------------------------------------------------
+ * AI動画解説ページ用機能（Gemini API連携）
+ * ------------------------------------------------------------------------
+ */
+class AiAnalysisFeatures {
+    fileInput;
+    dropArea;
+    resultPlaceholder;
+    resultSection;
+    constructor() {
+        // 以前確実に動いていたidとclassの指定方法に修正
+        this.fileInput = document.getElementById('file-upload');
+        if (!this.fileInput)
+            this.fileInput = document.querySelector('input[type="file"]');
+        this.dropArea = document.querySelector('.upload-area');
+        this.resultPlaceholder = document.querySelector('.result-placeholder');
+        this.resultSection = document.querySelector('.ai-result-section');
+        // デバッグ用：正しくHTMLを取得できているか裏側で確認
+        console.log("AI解析画面の連携チェック:", {
+            fileInput: !!this.fileInput,
+            dropArea: !!this.dropArea,
+            resultPlaceholder: !!this.resultPlaceholder
+        });
+        if (this.fileInput && this.dropArea && this.resultPlaceholder) {
+            this.initEventListeners();
+        }
+    }
+    initEventListeners() {
+        this.fileInput?.addEventListener('change', (e) => {
+            const target = e.target;
+            const file = target.files?.[0];
+            if (file) {
+                this.uploadAndAnalyzeVideo(file);
+            }
+        });
+        const selectBtn = this.dropArea?.querySelector('button');
+        selectBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.fileInput?.click();
+        });
+        this.dropArea?.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            if (this.dropArea)
+                this.dropArea.style.borderColor = 'var(--color-primary)';
+        });
+        this.dropArea?.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            if (this.dropArea)
+                this.dropArea.style.borderColor = 'var(--color-border)';
+        });
+        this.dropArea?.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (this.dropArea)
+                this.dropArea.style.borderColor = 'var(--color-border)';
+            const file = e.dataTransfer?.files?.[0];
+            if (file) {
+                this.uploadAndAnalyzeVideo(file);
+            }
+        });
+    }
+    async uploadAndAnalyzeVideo(file) {
+        if (!this.resultPlaceholder)
+            return;
+        if (!file.type.startsWith('video/')) {
+            alert('動画ファイル（MP4, MOV等）を選択してください。');
+            return;
+        }
+        if (file.size > 50 * 1024 * 1024) {
+            alert('ファイルサイズは50MB以下にしてください。');
+            return;
+        }
+        this.resultSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        this.resultPlaceholder.innerHTML = `
+        <div class="spinner" style="margin: 0 auto; border: 4px solid rgba(0,0,0,0.1); border-left-color: #E53935; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;"></div>
+        <p style="font-weight:700; margin-top: 15px;">AIが動画を解析中です... しばらくお待ちください。</p>
+        <p style="font-size: 0.85rem; color: #666;">${file.name}</p>
+        <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+      `;
+        const formData = new FormData();
+        formData.append('videoFile', file);
+        try {
+            const response = await fetch('http://localhost:8080/api/analyze-video', {
+                method: 'POST',
+                body: formData,
+            });
+            if (!response.ok) {
+                throw new Error('サーバーエラーが発生しました');
+            }
+            const data = await response.json();
+            this.showRealAnalysisResult(data.result);
+        }
+        catch (error) {
+            console.error(error);
+            this.resultPlaceholder.innerHTML = `
+          <p style="color: #E53935; font-weight: bold;">解析中にエラーが発生しました。</p>
+          <p style="font-size: 0.9rem; color: #666;">（Javaサーバーが起動しているか確認してください）</p>
+          <button class="ai-btn-secondary" onclick="location.reload()" style="margin-top: 15px; padding: 10px 20px; cursor: pointer;">やり直す</button>
+        `;
+        }
+    }
+    showRealAnalysisResult(analysisText) {
+        if (!this.resultPlaceholder)
+            return;
+        this.resultPlaceholder.style.backgroundColor = '#fff';
+        this.resultPlaceholder.style.padding = '40px';
+        const formattedText = analysisText.replace(/\n/g, '<br>');
+        this.resultPlaceholder.innerHTML = `
+        <div style="text-align:left; width: 100%;">
+          <h3 style="font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">✅ AI解析結果</h3>
+          <div style="background-color: #f9f9f9; padding: 25px; border-radius: 8px; border: 1px solid #ddd; line-height: 1.8;">
+            ${formattedText}
+          </div>
+          <div style="text-align:center; margin-top: 30px;">
+             <button class="ai-btn-secondary" onclick="location.reload()" style="padding: 10px 20px; cursor: pointer;">別の動画を解析する</button>
+          </div>
+        </div>
+      `;
+    }
+}
+// 起動処理
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.querySelector('.upload-area') || document.getElementById('file-upload')) {
+        new AiAnalysisFeatures();
+    }
+});
+/**-----------------------------------------------------------------------------------------------------------------------
+ * お問い合わせフォームの送信機能
+ */
+class ContactFormFeatures {
+    form;
+    nameInput;
+    emailInput;
+    messageInput;
+    submitBtn;
+    constructor() {
+        // スクリーンショットのHTML構造に合わせてDOM要素を取得
+        this.form = document.querySelector('.contact-form');
+        this.nameInput = document.getElementById('name');
+        this.emailInput = document.getElementById('email');
+        this.messageInput = document.getElementById('message');
+        this.submitBtn = document.querySelector('.submit-btn');
+        // フォームが存在するページ（トップページ）のみ処理を実行
+        if (this.form) {
+            this.initFormSubmit();
+        }
+    }
+    initFormSubmit() {
+        this.form.addEventListener('submit', async (e) => {
+            // 画面の再読み込みを防ぐ
+            e.preventDefault();
+            if (!this.nameInput || !this.emailInput || !this.messageInput || !this.submitBtn) {
+                console.error('フォームの必要な要素が見つかりません');
+                return;
+            }
+            // 入力値の取得と前後の空白削除
+            const formData = {
+                name: this.nameInput.value.trim(),
+                email: this.emailInput.value.trim(),
+                message: this.messageInput.value.trim()
+            };
+            // 簡易バリデーション（空チェック）
+            if (!formData.name || !formData.email || !formData.message) {
+                alert('すべての項目を入力してください。');
+                return;
+            }
+            // 送信中のUI変更（ボタンの連打防止）
+            const originalBtnText = this.submitBtn.textContent;
+            this.submitBtn.textContent = '送信中...';
+            this.submitBtn.disabled = true;
+            this.submitBtn.style.opacity = '0.7';
+            this.submitBtn.style.cursor = 'not-allowed';
+            try {
+                // Spring BootのAPIエンドポイントへデータを送信
+                // ※バックエンド側（Spring Boot）が http://localhost:8080 で起動している前提です
+                const response = await fetch('http://localhost:8080/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                });
+                if (!response.ok) {
+                    throw new Error('サーバーエラーが発生しました');
+                }
+                // 送信成功時の処理
+                alert('お問い合わせを送信しました。ご連絡ありがとうございます。');
+                this.form.reset(); // フォームの入力内容をクリア
+            }
+            catch (error) {
+                console.error('送信エラー:', error);
+                alert('送信に失敗しました。時間をおいて再度お試しいただくか、バックエンドサーバーが起動しているか確認してください。');
+            }
+            finally {
+                // 成功・失敗に関わらずボタンのUIを元に戻す
+                this.submitBtn.textContent = originalBtnText;
+                this.submitBtn.disabled = false;
+                this.submitBtn.style.opacity = '1';
+                this.submitBtn.style.cursor = 'pointer';
+            }
+        });
+    }
+}
+// DOM読み込み完了時に機能を初期化
+document.addEventListener('DOMContentLoaded', () => {
+    new ContactFormFeatures();
 });
 export {};
 //# sourceMappingURL=app.js.map
